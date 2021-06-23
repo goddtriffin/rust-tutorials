@@ -46,4 +46,9 @@ fn main() {
 
     let tuple: (i32, f64, u8) = (500, 6.4, 1);
     println!("The value of tuple is: ({}, {}, {})", tuple.0, tuple.1, tuple.2);
+
+    let array = [1, 2, 3, 4, 5];
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August",
+        "September", "October", "November", "December"];
+    let array_of_same = [3; 5];
 }
