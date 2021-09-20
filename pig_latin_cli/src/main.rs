@@ -50,11 +50,13 @@ fn pig_latin_ize(vowels: &[String; 6], words: &mut Vec<String>) {
             .unwrap_or_default()
             .to_lowercase();
 
+        // handle vowel-first pig latin
         if vowels.contains(&first_grapheme) {
             word.push_str("-hay");
             continue;
         }
 
+        // handle edge-case where a word could technically be a single letter consonant
         if word.len() < 2 {
             word.push_str("ay");
             continue;
@@ -62,7 +64,6 @@ fn pig_latin_ize(vowels: &[String; 6], words: &mut Vec<String>) {
 
         // handle consonant-first pig latin
         let graphemes = word.graphemes(true).collect::<Vec<&str>>();
-        // let test = &graphemes[1..]
         *word = format!("{}-{}ay", &graphemes[1..].join(""), &graphemes[0..1].join(""));
     }
 }
